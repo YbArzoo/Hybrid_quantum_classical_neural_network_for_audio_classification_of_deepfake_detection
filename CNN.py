@@ -53,19 +53,19 @@ def train_CNN(X_train, X_test, Y_train, Y_test, num_epochs=50):
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-    # ✅ Convert NumPy arrays to Torch tensors (DO NOT FLATTEN)
+    # Convert NumPy arrays to Torch tensors (DO NOT FLATTEN)
     X_train = torch.tensor(X_train, dtype=torch.float32)
     X_test = torch.tensor(X_test, dtype=torch.float32)
 
-    # ✅ Debug: Check X_train shape before reshaping
-    print(f"🔹 Debug: X_train shape before reshaping: {X_train.shape}")  # Check if (N,64,64)
+    # Debug: Check X_train shape before reshaping
+    print(f"Debug: X_train shape before reshaping: {X_train.shape}")  # Check if (N,64,64)
 
     # Ensure X_train and X_test have the right shape before reshaping
     if len(X_train.shape) == 3:  # Should be (num_samples, 64, 64)
         X_train = X_train.reshape(-1, 1, 64, 64)  # Convert to (batch, channels, height, width)
         X_test = X_test.reshape(-1, 1, 64, 64)
     else:
-        print(f"⚠️ Warning: Unexpected shape {X_train.shape}, skipping reshaping.")
+        print(f"Warning: Unexpected shape {X_train.shape}, skipping reshaping.")
 
     # Training loop
     for epoch in range(num_epochs):
@@ -85,7 +85,7 @@ def train_CNN(X_train, X_test, Y_train, Y_test, num_epochs=50):
         outputs = model(X_test)
         _, predicted = torch.max(outputs, 1)
         accuracy = (predicted == torch.tensor(Y_test, dtype=torch.long)).float().mean()
-        print(f'✅ Accuracy on test set: {accuracy.item() * 100:.2f}%')
+        print(f'Accuracy on test set: {accuracy.item() * 100:.2f}%')
 
 
 
