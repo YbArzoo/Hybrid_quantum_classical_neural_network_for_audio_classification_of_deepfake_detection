@@ -64,7 +64,7 @@ def QCNN_structure(U, params, U_params):
     
     
 def QCNN(X, params, U, U_params, embedding_type='Amplitude', cost_fn='cross_entropy'):
-    print(f"Debug: Received {len(params)} parameters in QCNN")  # ✅ Add debug statement
+    #print(f"Debug: Received {len(params)} parameters in QCNN")  # ✅ Add debug statement
     
     if X.shape[0] != 256:
         raise ValueError(f"Expected input of 256 features, but got {X.shape[0]}")
