@@ -38,15 +38,15 @@ def data_load_and_process(spectrogram_path):
     np.random.shuffle(data)
 
     # ✅ Debugging step: Ensure all images are 64x64 before conversion
-    print(f"🔹 Debug: Loaded {len(data)} samples before converting to NumPy array.")
+    print(f"Debug: Loaded {len(data)} samples before converting to NumPy array.")
     for i, (img, label) in enumerate(data[:5]):  # Print first 5 for debugging
-        print(f"🔹 Debug: Image {i} shape = {img.shape}, Label = {label}")
+        print(f"Debug: Image {i} shape = {img.shape}, Label = {label}")
 
     # ✅ Convert list of images into a NumPy array with a fixed shape
     X = np.array([item[0] for item in data], dtype=np.float32)  # Ensure float32 for CNN
     Y = np.array([item[1] for item in data], dtype=np.int64)  # Ensure labels are integers
 
-    print(f"✅ Debug: Final dataset shape X: {X.shape}, Y: {Y.shape}")  # Should be (num_samples, 64, 64)
+    print(f"Debug: Final dataset shape X: {X.shape}, Y: {Y.shape}")  # Should be (num_samples, 64, 64)
 
     # Split into training and test sets
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
