@@ -58,7 +58,7 @@ def train_CNN(X_train, X_test, Y_train, Y_test, num_epochs=50):
     X_test = torch.tensor(X_test, dtype=torch.float32)
 
     # Debug: Check X_train shape before reshaping
-    print(f"Debug: X_train shape before reshaping: {X_train.shape}")  # Check if (N,64,64)
+    #print(f"Debug: X_train shape before reshaping: {X_train.shape}")  # Check if (N,64,64)
 
     # Ensure X_train and X_test have the right shape before reshaping
     if len(X_train.shape) == 3:  # Should be (num_samples, 64, 64)
