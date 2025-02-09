@@ -17,7 +17,7 @@ if not os.path.exists(spectrogram_path):
 
 
 # Step 1: Load and preprocess dataset
-print("🔹 Loading and processing spectrogram dataset...")
+print("Loading and processing spectrogram dataset...")
 # Pass the spectrogram path to load the dataset
 X_train, X_test, Y_train, Y_test = data.data_load_and_process(spectrogram_path)
 
@@ -53,7 +53,7 @@ Hybrid_embedding_accuracy.Benchmarking_Hybrid_Accuracy(spectrogram_path, Y_train
 # Hybrid_embedding_entanglement.analyze_entanglement(X_train, embedding_type='Hybrid')
 
 # Step 6: Train QCNN Model
-print("🔹 Training QCNN...")
+print("Training QCNN...")
 U = 'U_SU4'  # Select quantum unitary ansatz
 U_params = 15
 embedding_type = "Amplitude"
@@ -63,10 +63,10 @@ loss_history, trained_params = circuit_training(X_train, Y_train, U, U_params, e
 
 # Save trained QCNN model
 np.save("trained_qcnn_params.npy", trained_params)
-print("✅ QCNN Training Completed!")
+print("QCNN Training Completed!")
 
 # Step 7: Evaluate QCNN
-print("🔹 Evaluating QCNN on Test Data...")
+print("Evaluating QCNN on Test Data...")
 trained_params = np.load("trained_qcnn_params.npy")
 
 # ✅ Pass X_test, Y_test to Benchmarking
