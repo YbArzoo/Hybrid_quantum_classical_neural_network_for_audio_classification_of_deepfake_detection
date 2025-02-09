@@ -28,4 +28,4 @@ loss_history, trained_params = circuit_training(X_train, Y_train, U, U_params, e
 
 # Save trained QCNN model
 np.save("trained_qcnn_params.npy", trained_params)
-print("✅ QCNN Training Completed!")
+print(" QCNN Training Completed!")
